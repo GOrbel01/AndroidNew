@@ -2,8 +2,7 @@
     android:layout_height="fill_parent"
     android:layout_width="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/relativeMain"
-    android:background="#010101">
+    android:id="@+id/relativeMain">
 
     <LinearLayout
         android:orientation="vertical"
@@ -15,7 +14,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/ffCharImage"
-            android:layout_marginLeft="10sp" />
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp" />
     </LinearLayout>
 
     <LinearLayout

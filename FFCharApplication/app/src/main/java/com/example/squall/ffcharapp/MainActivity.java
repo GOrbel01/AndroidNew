@@ -1,7 +1,10 @@
 package com.example.squall.ffcharapp;
 
+import android.app.ActionBar;
 import android.app.ListActivity;
 import android.content.res.AssetManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
