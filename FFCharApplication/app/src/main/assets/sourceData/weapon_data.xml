@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE weapons
+[
+    <!ELEMENT weapons (weapon*)>
+    <!ELEMENT weapon (name, ap, type)>
+    <!ELEMENT name (#PCDATA)>
+    <!ELEMENT ap (#PCDATA)>
+    <!ELEMENT type (#PCDATA)>
+]>
+<weapons>
+    <weapon>
+        <name>Buster Sword</name>
+        <ap>17</ap>
+        <type>Sword</type>
+    </weapon>
+    <weapon>
+        <name>Lionheart</name>
+        <ap>18</ap>
+        <type>Gunblade</type>
+    </weapon>
+    <weapon>
+        <name>Orichalcon</name>
+        <ap>15</ap>
+        <type>Daggers</type>
+    </weapon>
+    <weapon>
+        <name>Caladbolg</name>
+        <ap>16</ap>
+        <type>Sword</type>
+    </weapon>
+    <weapon>
+        <name>Death Penalty</name>
+        <ap>17</ap>
+        <type>Gun</type>
+    </weapon>
+</weapons>

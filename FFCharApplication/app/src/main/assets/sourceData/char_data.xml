@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE ffchars
+    [
+        <!ELEMENT ffchars (ffchar*)>
+        <!ELEMENT ffchar (name, game, image)>
+        <!ELEMENT name (#PCDATA)>
+        <!ELEMENT image (#PCDATA)>
+        <!ELEMENT game (#PCDATA)>
+    ]>
+<ffchars>
+    <ffchar>
+        <name>Cloud</name>
+        <game>Final Fantasy VII</game>
+        <image>ffchar_cloudstrife.jpg</image>
+    </ffchar>
+    <ffchar>
+        <name>Squall</name>
+        <game>Final Fantasy VIII</game>
+        <image>ffchar_squallleonheart.jpg</image>
+    </ffchar>
+    <ffchar>
+        <name>Zidane</name>
+        <game>Final Fantasy IX</game>
+        <image>ffchar_zidanetribal.jpg</image>
+    </ffchar>
+    <ffchar>
+        <name>Tidus</name>
+        <game>Final Fantasy X</game>
+        <image>ffchar_tidus.jpg</image>
+    </ffchar>
+</ffchars>

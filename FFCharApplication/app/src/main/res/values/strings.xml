@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">FFChar Application</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="equip_title">Equipment</string>
+    <string name="equip_weapon">Weapon</string>
+    <string name="equip_chest">Chest</string>
+    <string name="equip_legs">Leg Armour</string>
+    <string name="equip_acc">Accessory</string>
+
+</resources>

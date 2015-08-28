@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE legarmours
+    [
+        <!ELEMENT legarmours (legarmour*)>
+        <!ELEMENT legarmour (name, defense)>
+        <!ELEMENT name (#PCDATA)>
+        <!ELEMENT defense (#PCDATA)>
+        ]>
+<legarmours>
+    <legarmour>
+        <name>Leather Leggings</name>
+        <defense>10</defense>
+    </legarmour>
+    <legarmour>
+        <name>Studded Leather Leggings</name>
+        <defense>10</defense>
+    </legarmour>
+</legarmours>
