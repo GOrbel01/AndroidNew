@@ -7,6 +7,8 @@ public class Accessory {
     private final String name;
     private final int plusAttack;
 
+    public static final String TAG = "accessory";
+
     public Accessory(String name, int attack) {
         this.name = name;
         this.plusAttack = attack;

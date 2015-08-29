@@ -2,7 +2,6 @@
 <resources>
     <style name="MyApp"  parent="@android:style/Theme.Holo.Light.DarkActionBar">
         <item name="android:actionBarStyle">@style/MyActionBarStyle</item>
-        <item name="android:background">#000</item>
     </style>
 
     <style name="MyActionBarStyle" parent="android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">

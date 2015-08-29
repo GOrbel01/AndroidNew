@@ -1,24 +1,18 @@
 package com.example.squall.ffcharapp;
 
-import android.app.ActionBar;
 import android.app.ListActivity;
 import android.content.res.AssetManager;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.squall.ffcharapp.chars.FFChar;
-import com.example.squall.ffcharapp.equipment.Weapon;
-import com.example.squall.ffcharapp.fileio.parsers.functions.ParseFunctions;
-
-import java.util.List;
+import com.example.squall.ffcharapp.fileio.DataManagerImpl;
 
 public class MainActivity extends ListActivity {
 
     FFCharAdapter ffCharAdapter;
+    DataManagerImpl dm;
 
     AssetManager am;
 
@@ -27,10 +21,11 @@ public class MainActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         ffCharAdapter = new FFCharAdapter(this);
         am = getAssets();
+        dm = new DataManagerImpl(am);
         getListView().setFooterDividersEnabled(true);
-        List<FFChar> chars = ParseFunctions.parseToList("char_data.xml", FFChar.TAG, am);
 
-        for (FFChar fchar : chars) {
+
+        for (FFChar fchar : dm.getFFCharData()) {
             ffCharAdapter.add(fchar);
         }
         getListView().setAdapter(ffCharAdapter);
