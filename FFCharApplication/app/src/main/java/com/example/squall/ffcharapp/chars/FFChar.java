@@ -31,4 +31,8 @@ public class FFChar {
         return imageName;
     }
 
+    public void setImage(String iName) {
+        this.imageName = iName;
+    }
+
 }

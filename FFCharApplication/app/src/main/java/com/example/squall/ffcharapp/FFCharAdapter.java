@@ -3,6 +3,7 @@ package com.example.squall.ffcharapp;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -78,15 +79,21 @@ public class FFCharAdapter extends BaseAdapter {
         options.inSampleSize = 8;
         InputStream is;
         Bitmap ffCharImage;
-        try {
-            is = context.getAssets().open("images/" + ffChar.getImageName());
-            ffCharImage = BitmapFunctions.decodeBitmap(is);
-            Bitmap temp = Bitmap.createScaledBitmap(ffCharImage, 140, 200, false);
-            charImage.setImageBitmap(temp);
-        } catch (FileNotFoundException ex) {
-            ex.printStackTrace();
-        } catch (IOException ex) {
-            ex.printStackTrace();
+        boolean setImage = false;
+        while (!setImage) {
+            try {
+                is = context.getAssets().open("images/" + ffChar.getImageName());
+                ffCharImage = BitmapFunctions.decodeBitmap(is);
+                Bitmap temp = Bitmap.createScaledBitmap(ffCharImage, 140, 200, false);
+                charImage.setImageBitmap(temp);
+                setImage = true;
+            } catch (FileNotFoundException ex) {
+                Log.d("FILE_REPORT", "File Not found. Using default");
+                ffChar.setImage("default.jpg");
+            } catch (IOException ex) {
+                ex.printStackTrace();
+                break;
+            }
         }
         itemLayout.setOnClickListener(new View.OnClickListener() {
             @Override

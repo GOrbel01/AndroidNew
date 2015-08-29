@@ -67,6 +67,7 @@ public class ParseFunctions {
 
     public static <T> List<T> parseToList(String dataName, String choice, AssetManager am) {
         List<T> list = null;
+        if (dataName.equals("") || dataName == null) dataName = "default.jpg";
         FFGameXmlParser parser = ParserMaker.getInstance(choice);
         InputStream is = null;
         try {

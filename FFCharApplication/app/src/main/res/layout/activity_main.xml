@@ -7,4 +7,31 @@
     android:id="@+id/mainActivity"
     android:background="@android:color/darker_gray">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/darker_gray"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@android:style/TextAppearance.DeviceDefault.WindowTitle"
+            android:text="@string/game_menu"
+            android:id="@+id/textView5"
+            android:layout_gravity="center_horizontal"
+            android:background="@android:color/darker_gray"
+            android:textStyle="bold"
+            android:textSize="20dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/menu_play"
+            android:id="@+id/mainPlayButton"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="80dp" />
+    </LinearLayout>
 </RelativeLayout>

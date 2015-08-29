@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">FFChar Application</string>
-
+    <string name="game_menu">FFChar Main Menu</string>
+    <string name="menu_play">Start Game</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="equip_title">Equipment</string>

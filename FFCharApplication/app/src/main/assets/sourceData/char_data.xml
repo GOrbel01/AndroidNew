@@ -28,4 +28,9 @@
         <game>Final Fantasy X</game>
         <image>ffchar_tidus.jpg</image>
     </ffchar>
+    <ffchar>
+        <name>Vincent</name>
+        <game>Final Fantasy VII</game>
+        <image>ffchar_vincent.jpg</image>
+    </ffchar>
 </ffchars>
