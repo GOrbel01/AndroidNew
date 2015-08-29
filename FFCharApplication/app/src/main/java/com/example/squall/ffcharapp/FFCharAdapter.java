@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.squall.ffcharapp.chars.CharType;
 import com.example.squall.ffcharapp.chars.FFChar;
 import com.example.squall.ffcharapp.chars.Game;
 
@@ -73,6 +74,9 @@ public class FFCharAdapter extends BaseAdapter {
 
         final TextView gameContent = (TextView) itemLayout.findViewById(R.id.gameContent);
         gameContent.setText(Game.getGame(ffChar.getGameEnum()));
+
+        final TextView classContent = (TextView) itemLayout.findViewById(R.id.classContent);
+        classContent.setText(CharType.getType(ffChar.getType()));
 
         final ImageView charImage = (ImageView) itemLayout.findViewById(R.id.ffCharImage);
         BitmapFactory.Options options = new BitmapFactory.Options();

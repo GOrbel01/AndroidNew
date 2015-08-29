@@ -4,7 +4,7 @@ package com.example.squall.ffcharapp.equipment;
  * Created by Cloud on 28/08/2015.
  */
 public enum WeaponType {
-        SWORD, DAGGERS, GUN, GUNBLADE, INVALID;
+        SWORD, DAGGERS, GUN, GUNBLADE, STAFF, INVALID;
 
     public static WeaponType getType(String type) {
         switch(type) {
@@ -19,6 +19,9 @@ public enum WeaponType {
             }
             case "Sword": {
                 return WeaponType.SWORD;
+            }
+            case "Staff": {
+                return WeaponType.STAFF;
             }
             default: {
                 return WeaponType.INVALID;
@@ -39,6 +42,9 @@ public enum WeaponType {
             }
             case SWORD: {
                 return "Sword";
+            }
+            case STAFF: {
+                return "Staff";
             }
             default: {
                 return "Invalid";

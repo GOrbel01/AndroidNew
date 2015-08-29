@@ -2,8 +2,9 @@
 <!DOCTYPE ffchars
     [
         <!ELEMENT ffchars (ffchar*)>
-        <!ELEMENT ffchar (name, game, image)>
+        <!ELEMENT ffchar (name, game, type, image)>
         <!ELEMENT name (#PCDATA)>
+        <!ELEMENT type (#PCDATA)>
         <!ELEMENT image (#PCDATA)>
         <!ELEMENT game (#PCDATA)>
     ]>
@@ -11,26 +12,31 @@
     <ffchar>
         <name>Cloud</name>
         <game>Final Fantasy VII</game>
+        <type>Soldier</type>
         <image>ffchar_cloudstrife.jpg</image>
     </ffchar>
     <ffchar>
         <name>Squall</name>
         <game>Final Fantasy VIII</game>
+        <type>Mercenary</type>
         <image>ffchar_squallleonheart.jpg</image>
     </ffchar>
     <ffchar>
         <name>Zidane</name>
         <game>Final Fantasy IX</game>
+        <type>Thief</type>
         <image>ffchar_zidanetribal.jpg</image>
     </ffchar>
     <ffchar>
         <name>Tidus</name>
         <game>Final Fantasy X</game>
+        <type>Thief</type>
         <image>ffchar_tidus.jpg</image>
     </ffchar>
     <ffchar>
         <name>Vincent</name>
         <game>Final Fantasy VII</game>
+        <type>Mercenary</type>
         <image>ffchar_vincent.jpg</image>
     </ffchar>
 </ffchars>

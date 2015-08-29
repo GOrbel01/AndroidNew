@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="MyApp"  parent="@android:style/Theme.Holo.Light.DarkActionBar">
-        <item name="android:actionBarStyle">@style/MyActionBarStyle</item>
+    <style name="MyApp"  parent="@android:style/Theme.Holo">
+        <item name="android:actionBarStyle">@style/ActionBarStyle</item>
     </style>
 
-    <style name="MyActionBarStyle" parent="android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+    <style name="ActionBarStyle" parent="@android:style/Widget.ActionBar">
+
     </style>
 </resources>

@@ -7,12 +7,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.squall.ffcharapp.chars.FFChar;
-import com.example.squall.ffcharapp.fileio.DataManagerImpl;
+import com.example.squall.ffcharapp.fileio.DataManager;
 
 public class MainActivity extends ListActivity {
 
     FFCharAdapter ffCharAdapter;
-    DataManagerImpl dm;
+    DataManager dm;
 
     AssetManager am;
 
@@ -20,12 +20,9 @@ public class MainActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ffCharAdapter = new FFCharAdapter(this);
-        am = getAssets();
-        dm = new DataManagerImpl(am);
         getListView().setFooterDividersEnabled(true);
 
-
-        for (FFChar fchar : dm.getFFCharData()) {
+        for (FFChar fchar : DataManager.getFFCharData()) {
             ffCharAdapter.add(fchar);
         }
         getListView().setAdapter(ffCharAdapter);

@@ -3,9 +3,11 @@ package com.example.squall.ffcharapp.fileio.parsers;
 import android.util.Log;
 import android.util.Xml;
 
+import com.example.squall.ffcharapp.chars.CharType;
 import com.example.squall.ffcharapp.chars.FFChar;
 import com.example.squall.ffcharapp.chars.Game;
 import com.example.squall.ffcharapp.equipment.Weapon;
+import com.example.squall.ffcharapp.factory.FFCharMaker;
 import com.example.squall.ffcharapp.fileio.parsers.functions.ParseFunctions;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -55,7 +57,7 @@ public class FFCharParser implements FFGameXmlParser<FFChar>  {
                 continue;
             }
             String name = parser.getName();
-            if (name.equals("ffchar")) {
+            if (name.equals(FFChar.TAG)) {
                 entries.add(readFFChar(parser));
             }
             else {
@@ -66,9 +68,10 @@ public class FFCharParser implements FFGameXmlParser<FFChar>  {
     }
 
     private FFChar readFFChar(XmlPullParser parser) throws XmlPullParserException, IOException {
-        parser.require(XmlPullParser.START_TAG, ns, "ffchar");
+        parser.require(XmlPullParser.START_TAG, ns, FFChar.TAG);
         String name = null;
         String image = null;
+        String type = null;
         String game = null;
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.getEventType() != XmlPullParser.START_TAG) {
@@ -81,6 +84,9 @@ public class FFCharParser implements FFGameXmlParser<FFChar>  {
             else if (pName.equals("game")) {
                 game = ParseFunctions.readSimpleElement(parser, "game");
             }
+            else if (pName.equals("type")) {
+                type = ParseFunctions.readSimpleElement(parser, "type");
+            }
             else if (pName.equals("image")) {
                 image = ParseFunctions.readSimpleElement(parser, "image");
             }
@@ -90,6 +96,6 @@ public class FFCharParser implements FFGameXmlParser<FFChar>  {
         }
         Log.d("FCHAR", name);
         //TODO replace with Factory
-        return new FFChar(name, Game.getGame(game), image);
+        return FFCharMaker.createFFChar(name, Game.getGame(game), CharType.getType(type), image);
     }
 }

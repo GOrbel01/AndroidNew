@@ -3,10 +3,9 @@ package com.example.squall.ffcharapp.fileio.parsers;
 import android.util.Log;
 import android.util.Xml;
 
-import com.example.squall.ffcharapp.chars.FFChar;
-import com.example.squall.ffcharapp.chars.Game;
+import com.example.squall.ffcharapp.equipment.Armour;
+import com.example.squall.ffcharapp.equipment.LegArmour;
 import com.example.squall.ffcharapp.equipment.Weapon;
-import com.example.squall.ffcharapp.equipment.WeaponType;
 import com.example.squall.ffcharapp.fileio.parsers.functions.ParseFunctions;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -18,24 +17,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Cloud on 28/08/2015.
+ * Created by Cloud on 29/08/2015.
  */
-//TODO Dont think the parsing can be abstracted any further than the libs
-public class WeaponParser implements FFGameXmlParser<Weapon>  {
+public class LegArmourParser implements FFGameXmlParser<LegArmour> {
     private static final String ns = null;
-    private static final String MAIN_TAG = "weapons";
+    private static final String MAIN_TAG = "legarmours";
 
-    private static final WeaponParser weaponParser = new WeaponParser();
+    private static final LegArmourParser legArmourParser = new LegArmourParser();
 
-    private WeaponParser() {
+    private LegArmourParser() {
 
     }
 
-    public static WeaponParser getInstance() {
-        return weaponParser;
+    public static LegArmourParser getInstance() {
+        return legArmourParser;
     }
 
-    public List<Weapon> parse(InputStream in) throws XmlPullParserException, IOException {
+    public List<LegArmour> parse(InputStream in) throws XmlPullParserException, IOException {
         try {
             XmlPullParser parser = Xml.newPullParser();
             parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
@@ -56,8 +54,8 @@ public class WeaponParser implements FFGameXmlParser<Weapon>  {
                 continue;
             }
             String name = parser.getName();
-            if (name.equals(Weapon.TAG)) {
-                entries.add(readWeapon(parser));
+            if (name.equals(LegArmour.TAG)) {
+                entries.add(readArmour(parser));
             }
             else {
                 ParseFunctions.skip(parser);
@@ -66,11 +64,10 @@ public class WeaponParser implements FFGameXmlParser<Weapon>  {
         return entries;
     }
 
-    private Weapon readWeapon(XmlPullParser parser) throws XmlPullParserException, IOException, IllegalArgumentException {
-        parser.require(XmlPullParser.START_TAG, ns, Weapon.TAG);
+    private LegArmour readArmour(XmlPullParser parser) throws XmlPullParserException, IOException, IllegalArgumentException {
+        parser.require(XmlPullParser.START_TAG, ns, LegArmour.TAG);
         String name = null;
-        String ap = null;
-        String type = null;
+        String defense = null;
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.getEventType() != XmlPullParser.START_TAG) {
                 continue;
@@ -79,20 +76,17 @@ public class WeaponParser implements FFGameXmlParser<Weapon>  {
             if (pName.equals("name")) {
                 name = ParseFunctions.readSimpleElement(parser, "name");
             }
-            else if (pName.equals("ap")) {
-                ap = ParseFunctions.readSimpleElement(parser, "ap");
-            }
-            else if (pName.equals("type")) {
-                type = ParseFunctions.readSimpleElement(parser, "type");
+            else if (pName.equals("defense")) {
+                defense = ParseFunctions.readSimpleElement(parser, "defense");
             }
             else {
                 ParseFunctions.skip(parser);
             }
         }
-        if (!ParseFunctions.isValidNumber(ap)) throw new IllegalArgumentException("Number expected in XML but found non-numeric value");
-        Log.d("WEAPON", name);
-        Log.d("WEAPON", ap);
+        if (!ParseFunctions.isValidNumber(defense)) throw new IllegalArgumentException("Number expected in XML but found non-numeric value");
+        Log.d("ARMOUR", name);
+        Log.d("ARMOUR", defense);
         //TODO replace with Factory
-        return new Weapon(name, Integer.parseInt(ap), WeaponType.getType(type));
+        return new LegArmour(name, Integer.parseInt(defense));
     }
 }
