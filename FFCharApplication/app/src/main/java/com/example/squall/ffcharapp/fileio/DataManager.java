@@ -5,6 +5,7 @@ import android.content.res.AssetManager;
 import android.os.AsyncTask;
 
 import com.example.squall.ffcharapp.chars.FFChar;
+import com.example.squall.ffcharapp.equipment.Accessory;
 import com.example.squall.ffcharapp.equipment.ChestArmour;
 import com.example.squall.ffcharapp.equipment.LegArmour;
 import com.example.squall.ffcharapp.equipment.Weapon;
@@ -27,16 +28,27 @@ public class DataManager {
     private static List<FFChar> ffCharData;
     private static List<ChestArmour> chestArmourData;
     private static List<LegArmour> legArmourData;
+    private static List<Accessory> accessoryData;
 
-    public DataManager(List<FFChar> ffchars, List<Weapon> weps, List<ChestArmour> chests, List<LegArmour> legs) {
+    public DataManager(List<FFChar> ffchars, List<Weapon> weps, List<ChestArmour> chests, List<LegArmour> legs, List<Accessory> acc) {
         weaponData = weps;
         ffCharData = ffchars;
         chestArmourData = chests;
         legArmourData = legs;
+        accessoryData = acc;
     }
 
     public static List<FFChar> getFFCharData() {
         return ffCharData;
+    }
+
+    public static FFChar getFFChar(String name) {
+        for (FFChar ffChar : ffCharData) {
+            if (ffChar.getName().equals(name)) {
+                return ffChar;
+            }
+        }
+        return null;
     }
 
     public static List<Weapon> getWeaponData() {
@@ -49,5 +61,9 @@ public class DataManager {
 
     public static List<LegArmour> getLegArmourData() {
         return legArmourData;
+    }
+
+    public static List<Accessory> getAccessoryData() {
+        return accessoryData;
     }
 }

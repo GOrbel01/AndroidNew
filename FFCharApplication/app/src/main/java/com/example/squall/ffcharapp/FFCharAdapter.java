@@ -1,6 +1,7 @@
 package com.example.squall.ffcharapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -66,46 +68,47 @@ public class FFCharAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         final FFChar ffChar = (FFChar) getItem(position);
-
-        RelativeLayout itemLayout = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.list_item, null);
-
-        final TextView nameContent = (TextView) itemLayout.findViewById(R.id.nameContent);
-        nameContent.setText(ffChar.getName());
-
-        final TextView gameContent = (TextView) itemLayout.findViewById(R.id.gameContent);
-        gameContent.setText(Game.getGame(ffChar.getGameEnum()));
-
-        final TextView classContent = (TextView) itemLayout.findViewById(R.id.classContent);
-        classContent.setText(CharType.getType(ffChar.getType()));
-
-        final ImageView charImage = (ImageView) itemLayout.findViewById(R.id.ffCharImage);
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inSampleSize = 8;
-        InputStream is;
-        Bitmap ffCharImage;
-        boolean setImage = false;
-        while (!setImage) {
-            try {
-                is = context.getAssets().open("images/" + ffChar.getImageName());
-                ffCharImage = BitmapFunctions.decodeBitmap(is);
-                Bitmap temp = Bitmap.createScaledBitmap(ffCharImage, 140, 200, false);
-                charImage.setImageBitmap(temp);
-                setImage = true;
-            } catch (FileNotFoundException ex) {
-                Log.d("FILE_REPORT", "File Not found. Using default");
-                ffChar.setImage("default.jpg");
-            } catch (IOException ex) {
-                ex.printStackTrace();
-                break;
-            }
+        RelativeLayout itemLayout;
+        if (convertView == null) {
+            itemLayout = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.list_item, null);
+        } else {
+            itemLayout = (RelativeLayout) convertView;
         }
+
+        ViewHolder holder = new ViewHolder();
+
+        holder.nameContent = (TextView) itemLayout.findViewById(R.id.nameContent);
+        holder.nameContent.setText(ffChar.getName());
+
+        holder.gameContent = (TextView) itemLayout.findViewById(R.id.gameContent);
+        holder.gameContent.setText(Game.getGame(ffChar.getGameEnum()));
+
+        holder.classContent = (TextView) itemLayout.findViewById(R.id.classContent);
+        holder.classContent.setText(CharType.getType(ffChar.getType()));
+
+        holder.charIcon = (ImageView) itemLayout.findViewById(R.id.ffCharImage);
+
+        BitmapWorker bitmapWorker = new BitmapWorker(context, holder.charIcon, ffChar.getImageName());
+        bitmapWorker.execute(200, 265);
+
         itemLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, "Pressed on Char Named: " + ffChar.getName(), Toast.LENGTH_LONG).show();
+                Intent startInventoryIntent = new Intent(context, InventoryActivity.class);
+                startInventoryIntent.putExtra("CHAR_NAME", ffChar.getName());
+                context.startActivity(startInventoryIntent);
             }
         });
-
+        Log.d("MAIN_LIST", "Created Main List");
         return itemLayout;
+    }
+
+    static class ViewHolder {
+        TextView nameContent;
+        TextView gameContent;
+        TextView classContent;
+        ImageView charIcon;
+        int position;
     }
 }

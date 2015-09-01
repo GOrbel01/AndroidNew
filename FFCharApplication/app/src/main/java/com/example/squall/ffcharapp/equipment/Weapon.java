@@ -11,7 +11,9 @@ public class Weapon {
     public static final String TAG = "weapon";
 
     public Weapon(String name, int power, WeaponType type) {
-
+        this.name = name;
+        this.power = power;
+        this.type = type;
     }
 
     public String getName() {
@@ -20,5 +22,9 @@ public class Weapon {
 
     public WeaponType getType() {
         return type;
+    }
+
+    public String toString() {
+        return name;
     }
 }

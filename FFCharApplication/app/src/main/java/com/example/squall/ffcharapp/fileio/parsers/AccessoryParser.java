@@ -3,9 +3,8 @@ package com.example.squall.ffcharapp.fileio.parsers;
 import android.util.Log;
 import android.util.Xml;
 
-import com.example.squall.ffcharapp.equipment.Armour;
+import com.example.squall.ffcharapp.equipment.Accessory;
 import com.example.squall.ffcharapp.equipment.LegArmour;
-import com.example.squall.ffcharapp.equipment.Weapon;
 import com.example.squall.ffcharapp.fileio.parsers.functions.ParseFunctions;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -17,23 +16,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Cloud on 29/08/2015.
+ * Created by Cloud on 01/09/2015.
  */
-public class LegArmourParser implements FFGameXmlParser<LegArmour> {
+public class AccessoryParser implements FFGameXmlParser<Accessory> {
     private static final String ns = null;
-    private static final String MAIN_TAG = "legarmours";
+    private static final String MAIN_TAG = "accessories";
 
-    private static final LegArmourParser legArmourParser = new LegArmourParser();
+    private static final AccessoryParser accessoryParser = new AccessoryParser();
 
-    private LegArmourParser() {
+    private AccessoryParser() {
 
     }
 
-    public static LegArmourParser getInstance() {
-        return legArmourParser;
+    public static AccessoryParser getInstance() {
+        return accessoryParser;
     }
 
-    public List<LegArmour> parse(InputStream in) throws XmlPullParserException, IOException {
+    public List<Accessory> parse(InputStream in) throws XmlPullParserException, IOException {
         try {
             XmlPullParser parser = Xml.newPullParser();
             parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
@@ -54,7 +53,7 @@ public class LegArmourParser implements FFGameXmlParser<LegArmour> {
                 continue;
             }
             String name = parser.getName();
-            if (name.equals(LegArmour.TAG)) {
+            if (name.equals(Accessory.TAG)) {
                 entries.add(readArmour(parser));
             }
             else {
@@ -64,10 +63,10 @@ public class LegArmourParser implements FFGameXmlParser<LegArmour> {
         return entries;
     }
 
-    private LegArmour readArmour(XmlPullParser parser) throws XmlPullParserException, IOException, NumberFormatException {
-        parser.require(XmlPullParser.START_TAG, ns, LegArmour.TAG);
+    private Accessory readArmour(XmlPullParser parser) throws XmlPullParserException, IOException, NumberFormatException {
+        parser.require(XmlPullParser.START_TAG, ns, Accessory.TAG);
         String name = null;
-        String defense = null;
+        String plusStat = null;
         while (parser.next() != XmlPullParser.END_TAG) {
             if (parser.getEventType() != XmlPullParser.START_TAG) {
                 continue;
@@ -76,17 +75,17 @@ public class LegArmourParser implements FFGameXmlParser<LegArmour> {
             if (pName.equals("name")) {
                 name = ParseFunctions.readSimpleElement(parser, "name");
             }
-            else if (pName.equals("defense")) {
-                defense = ParseFunctions.readSimpleElement(parser, "defense");
+            else if (pName.equals("plusStat")) {
+                plusStat = ParseFunctions.readSimpleElement(parser, "plusStat");
             }
             else {
                 ParseFunctions.skip(parser);
             }
         }
-        if (!ParseFunctions.isValidNumber(defense)) throw new NumberFormatException("Number expected in XML but found non-numeric value");
-        Log.d("ARMOUR", name);
-        Log.d("ARMOUR", defense);
+        if (!ParseFunctions.isValidNumber(plusStat)) throw new NumberFormatException("Number expected in XML but found non-numeric value");
+        Log.d("ACC", name);
+        Log.d("ACC", plusStat);
         //TODO replace with Factory
-        return new LegArmour(name, Integer.parseInt(defense));
+        return new Accessory(name, Integer.parseInt(plusStat));
     }
 }

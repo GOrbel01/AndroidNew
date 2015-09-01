@@ -30,14 +30,14 @@ public class BitmapFunctions {
         return scaledBitmap;
     }
 
-    public static Bitmap decodeBitmap(InputStream is) {
+    public static Bitmap decodeBitmap(InputStream is, int size) {
             // Decode image size
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inJustDecodeBounds = true;
             BitmapFactory.decodeStream(is, null, options);
 
             // The new size we want to scale to
-            final int REQUIRED_SIZE=70;
+            final int REQUIRED_SIZE=size;
 
             // Find the correct scale value. It should be the power of 2.
             int scale = 1;
@@ -45,6 +45,7 @@ public class BitmapFunctions {
                     options.outHeight / scale / 2 >= REQUIRED_SIZE) {
                 scale *= 2;
             }
+            scale = size;
 
             // Decode with inSampleSize
             BitmapFactory.Options options2 = new BitmapFactory.Options();

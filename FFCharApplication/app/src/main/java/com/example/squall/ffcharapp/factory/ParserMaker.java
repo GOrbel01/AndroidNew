@@ -1,9 +1,11 @@
 package com.example.squall.ffcharapp.factory;
 
 import com.example.squall.ffcharapp.chars.FFChar;
+import com.example.squall.ffcharapp.equipment.Accessory;
 import com.example.squall.ffcharapp.equipment.ChestArmour;
 import com.example.squall.ffcharapp.equipment.LegArmour;
 import com.example.squall.ffcharapp.equipment.Weapon;
+import com.example.squall.ffcharapp.fileio.parsers.AccessoryParser;
 import com.example.squall.ffcharapp.fileio.parsers.ChestArmourParser;
 import com.example.squall.ffcharapp.fileio.parsers.FFCharParser;
 import com.example.squall.ffcharapp.fileio.parsers.FFGameXmlParser;
@@ -29,6 +31,9 @@ public class ParserMaker {
         }
         else if (choice.equals(ChestArmour.TAG)) {
             return ChestArmourParser.getInstance();
+        }
+        else if (choice.equals(Accessory.TAG)) {
+            return AccessoryParser.getInstance();
         }
         else return null;
     }

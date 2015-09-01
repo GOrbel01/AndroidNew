@@ -18,40 +18,44 @@ public final class R {
         public static final int inv_bag=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f09001b;
-        public static final int classContent=0x7f09001a;
-        public static final int ffCharImage=0x7f090013;
-        public static final int gameContent=0x7f090019;
-        public static final int gameLabel=0x7f090016;
-        public static final int imageView=0x7f090007;
-        public static final int imageView2=0x7f090010;
+        public static final int accSpinner=0x7f09000c;
+        public static final int action_settings=0x7f09001e;
+        public static final int chestSpinner=0x7f09000a;
+        public static final int classContent=0x7f09001d;
+        public static final int ffCharImage=0x7f090016;
+        public static final int gameContent=0x7f09001c;
+        public static final int gameLabel=0x7f090019;
+        public static final int imageView=0x7f09000d;
+        public static final int inv_charImage=0x7f090008;
         public static final int inv_titleText=0x7f090004;
-        public static final int linearLabels=0x7f090014;
-        public static final int linearLayout=0x7f090012;
-        public static final int linearLayout2=0x7f090006;
+        public static final int legSpinner=0x7f09000b;
+        public static final int linearLabels=0x7f090017;
+        public static final int linearLayout2=0x7f090007;
+        public static final int listImageLayout=0x7f090015;
         public static final int mainActivity=0x7f090000;
         public static final int mainPlayButton=0x7f090002;
-        public static final int nameContent=0x7f090018;
-        public static final int nameLabel=0x7f090015;
+        public static final int nameContent=0x7f09001b;
+        public static final int nameLabel=0x7f090018;
         public static final int relativeLayout=0x7f090005;
-        public static final int relativeMain=0x7f090011;
+        public static final int relativeLayout2=0x7f090006;
+        public static final int relativeMain=0x7f090014;
         public static final int second_text=0x7f090003;
-        public static final int spinner=0x7f090009;
-        public static final int spinner2=0x7f09000a;
-        public static final int spinner3=0x7f09000b;
-        public static final int textView=0x7f09000c;
-        public static final int textView2=0x7f09000d;
-        public static final int textView3=0x7f09000e;
-        public static final int textView4=0x7f09000f;
+        public static final int textView=0x7f09000e;
+        public static final int textView2=0x7f09000f;
+        public static final int textView3=0x7f090010;
+        public static final int textView4=0x7f090011;
         public static final int textView5=0x7f090001;
-        public static final int textView6=0x7f090017;
-        public static final int weaponSpinner=0x7f090008;
+        public static final int textView6=0x7f09001a;
+        public static final int textView7=0x7f090012;
+        public static final int textView8=0x7f090013;
+        public static final int weaponSpinner=0x7f090009;
     }
     public static final class layout {
         public static final int activity_main=0x7f040000;
         public static final int activity_second=0x7f040001;
-        public static final int inventory_layout=0x7f040002;
-        public static final int list_item=0x7f040003;
+        public static final int dropdown_item=0x7f040002;
+        public static final int inventory_layout=0x7f040003;
+        public static final int list_item=0x7f040004;
     }
     public static final class menu {
         public static final int menu_main=0x7f080000;

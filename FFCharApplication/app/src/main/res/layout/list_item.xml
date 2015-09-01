@@ -7,26 +7,29 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:id="@+id/linearLayout">
+        android:layout_height="wrap_content"
+        android:id="@+id/listImageLayout"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/ffCharImage"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp" />
+            android:id="@+id/ffCharImage" />
     </LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/linearLabels"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/linearLayout"
-        android:layout_marginRight="10sp">
+        android:layout_toEndOf="@+id/listImageLayout"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:gravity="left|center_vertical"
+        android:layout_marginBottom="5dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -34,8 +37,7 @@
             android:text="Name:"
             android:id="@+id/nameLabel"
             android:textSize="20dp"
-            android:textColor="#ffffff"
-            android:layout_marginTop="15dp" />
+            android:textColor="#ffffff" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -60,9 +62,11 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/linearLabels">
+        android:layout_toEndOf="@+id/linearLabels"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp">
 
         <TextView
                 android:layout_width="wrap_content"
@@ -70,9 +74,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:id="@+id/nameContent"
                 android:textSize="20dp"
-                android:textColor="#FFFFFFFF"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp" />
+                android:textColor="#FFFFFFFF" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -81,7 +83,6 @@
             android:id="@+id/gameContent"
             android:textSize="20dp"
             android:textColor="#FFFFFFFF"
-            android:layout_marginLeft="10dp"
             android:layout_marginTop="9dp" />
 
         <TextView
@@ -91,7 +92,6 @@
             android:id="@+id/classContent"
             android:textSize="20dp"
             android:textColor="#FFFFFFFF"
-            android:layout_marginLeft="10dp"
             android:layout_marginTop="9dp" />
     </LinearLayout>
 

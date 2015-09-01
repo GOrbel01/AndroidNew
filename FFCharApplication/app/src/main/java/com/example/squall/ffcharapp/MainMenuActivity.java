@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.squall.ffcharapp.chars.FFChar;
+import com.example.squall.ffcharapp.equipment.Accessory;
 import com.example.squall.ffcharapp.equipment.ChestArmour;
 import com.example.squall.ffcharapp.equipment.LegArmour;
 import com.example.squall.ffcharapp.equipment.Weapon;
@@ -58,9 +59,9 @@ public class MainMenuActivity extends Activity {
             //Set the progress dialog to display a horizontal progress bar
             progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
             //Set the dialog title to 'Loading...'
-            progressDialog.setTitle("Loading...");
+            progressDialog.setTitle("Load View");
             //Set the dialog message to 'Loading application View, please wait...'
-            progressDialog.setMessage("Loading application View, please wait...");
+            progressDialog.setMessage("Loading Application Data...");
             //This dialog can't be canceled by pressing the back key
             progressDialog.setCancelable(false);
             //This dialog isn't indeterminate
@@ -73,6 +74,9 @@ public class MainMenuActivity extends Activity {
             progressDialog.show();
         }
 
+        /*
+            Load XML data in background. Note, this.wait(int) is to simulate load times
+         */
         @Override
         protected DataManager doInBackground(Void... params) {
             AssetManager am = mContext.getAssets();
@@ -81,17 +85,19 @@ public class MainMenuActivity extends Activity {
                 synchronized (this) {
                     this.wait(1000);
                     List<FFChar> ffChars = ParseFunctions.parseToList("char_data.xml", FFChar.TAG, am);
-                    publishProgress(25);
+                    publishProgress(20);
                     this.wait(1000);
                     List<Weapon> ffWeps = ParseFunctions.parseToList("weapon_data.xml", Weapon.TAG, am);
-                    publishProgress(50);
+                    publishProgress(40);
                     this.wait(1000);
                     List<LegArmour> ffLegs = ParseFunctions.parseToList("armour_leg_data.xml", LegArmour.TAG, am);
-                    publishProgress(75);
+                    publishProgress(60);
                     this.wait(1000);
                     List<ChestArmour> ffChests = ParseFunctions.parseToList("armour_chest_data.xml", ChestArmour.TAG, am);
+                    publishProgress(80);
+                    List<Accessory> ffAcc = ParseFunctions.parseToList("accessory_data.xml", Accessory.TAG, am);
                     publishProgress(100);
-                    dm = new DataManager(ffChars, ffWeps, ffChests, ffLegs);
+                    dm = new DataManager(ffChars, ffWeps, ffChests, ffLegs, ffAcc);
                 }
             } catch (InterruptedException ex) {
                 ex.printStackTrace();

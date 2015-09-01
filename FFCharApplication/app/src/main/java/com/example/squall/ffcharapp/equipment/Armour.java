@@ -25,4 +25,8 @@ public abstract class Armour {
     public ArmourSlot getSlot() {
         return slot;
     }
+
+    public String toString() {
+        return name;
+    }
 }

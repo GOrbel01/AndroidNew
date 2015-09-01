@@ -80,6 +80,8 @@ public class ParseFunctions {
             ex.printStackTrace();
         } catch (XmlPullParserException ex) {
             ex.printStackTrace();
+        } catch (NumberFormatException ex) {
+            ex.printStackTrace();
         }
         if (is != null) {
             try {

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE accessories
+    [
+        <!ELEMENT accessories (accessory*)>
+        <!ELEMENT accessory (name, plusStat)>
+        <!ELEMENT name (#PCDATA)>
+        <!ELEMENT plusStat (#PCDATA)>
+        ]>
+<accessories>
+    <accessory>
+        <name>Mythril Bangle</name>
+        <plusStat>10</plusStat>
+    </accessory>
+    <accessory>
+        <name>Gold Armlet</name>
+        <plusStat>6</plusStat>
+    </accessory>
+</accessories>

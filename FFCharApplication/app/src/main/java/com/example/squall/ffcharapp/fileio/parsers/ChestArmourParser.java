@@ -63,7 +63,7 @@ public class ChestArmourParser implements FFGameXmlParser<ChestArmour> {
         return entries;
     }
 
-    private ChestArmour readArmour(XmlPullParser parser) throws XmlPullParserException, IOException, IllegalArgumentException {
+    private ChestArmour readArmour(XmlPullParser parser) throws XmlPullParserException, IOException, NumberFormatException {
         parser.require(XmlPullParser.START_TAG, ns, ChestArmour.TAG);
         String name = null;
         String defense = null;
@@ -82,7 +82,7 @@ public class ChestArmourParser implements FFGameXmlParser<ChestArmour> {
                 ParseFunctions.skip(parser);
             }
         }
-        if (!ParseFunctions.isValidNumber(defense)) throw new IllegalArgumentException("Number expected in XML but found non-numeric value");
+        if (!ParseFunctions.isValidNumber(defense)) throw new NumberFormatException("Number expected in XML but found non-numeric value");
         Log.d("ARMOUR", name);
         Log.d("ARMOUR", defense);
         //TODO replace with Factory

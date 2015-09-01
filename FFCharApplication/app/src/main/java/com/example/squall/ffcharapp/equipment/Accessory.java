@@ -21,4 +21,9 @@ public class Accessory {
     public int getPlus() {
         return plusAttack;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
