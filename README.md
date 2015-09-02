@@ -5,5 +5,5 @@ Repository containing personal Android development projects
 
 Aiming to do 3+ projects of increasing complexity.
 
-Project 1: Name: FFCharApplication \n
+Project 1: Name: FFCharApplication <br>
            Description: Android simple RPG battle style game
