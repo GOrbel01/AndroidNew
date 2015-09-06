@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:baselineAligned="false"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_height="0px"
+        android:layout_weight="1">
+        <fragment android:name="com.example.squall.fragmentsapp.fragments.WordTitleFragment"
+            android:id="@+id/title_fragment"
+            android:layout_marginLeft="5dp"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+        </fragment>
+        <fragment android:name="com.example.squall.fragmentsapp.fragments.DefTitleFragment"
+            android:id="@+id/title_fragment_def"
+            android:layout_marginLeft="5dp"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="2">
+        </fragment>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:baselineAligned="false"
+        android:layout_height="0px"
+        android:layout_weight="9">
+
+        <fragment android:name="com.example.squall.fragmentsapp.fragments.WordFragment"
+            android:id="@+id/word_fragment"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+        </fragment>
+
+        <fragment android:name="com.example.squall.fragmentsapp.fragments.DefinitionFragment"
+            android:id="@+id/definition_fragment"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_weight="2"/>
+    </LinearLayout>
+</LinearLayout>
